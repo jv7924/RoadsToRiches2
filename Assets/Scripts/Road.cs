@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public abstract class Tile : MonoBehaviour
+public class Road : Tile
 {
-    [SerializeField] private Sprite tileFace;
-
     // Start is called before the first frame update
     void Start()
     {
