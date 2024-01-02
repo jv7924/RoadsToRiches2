@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
+    [SerializeField] private GameObject tileEven;
+    [SerializeField] private GameObject tileOdd;
     private const int BOARD_SIZE = 9;
     private const int TILE_OFFSET = 10;
     private GameObject[,] tiles = new GameObject[9, 9];
-    public GameObject tileEven;
-    public GameObject tileOdd;
-    public Material material;
 
     // Start is called before the first frame update
     void Start()

@@ -6,15 +6,14 @@ public abstract class Tile : MonoBehaviour
 {
     [SerializeField] private Sprite tileFace;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected KeyValuePair<bool, Road> up;
+    protected KeyValuePair<bool, Road> down;
+    protected KeyValuePair<bool, Road> left;
+    protected KeyValuePair<bool, Road> right;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected int rotation;
+
+    protected abstract void RotateTileClockwise();
+    protected abstract void RotateTileCounterClockwise();
+    protected abstract bool CheckIfValidConnection();
 }

@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Road : Tile
 {
+    [SerializeField] private Sprite cardFace;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +17,19 @@ public class Road : Tile
     void Update()
     {
         
+    }
+    protected override bool CheckIfValidConnection()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void RotateTileClockwise()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void RotateTileCounterClockwise()
+    {
+        throw new System.NotImplementedException();
     }
 }
