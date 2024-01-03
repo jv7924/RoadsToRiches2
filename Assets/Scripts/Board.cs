@@ -24,9 +24,9 @@ public class Board : MonoBehaviour
 
     public void GenerateGrid()
     {
-        for (int i = 0; i < BOARD_SIZE; i++)
+        for (int i = 1; i <= BOARD_SIZE; i++)
         {
-            for (int j = 0; j < BOARD_SIZE; j++)
+            for (int j = 1; j <= BOARD_SIZE; j++)
             {
                 GameObject newTile = Instantiate(((i + j) % 2 == 0) ? tileEven : tileOdd, new Vector3(TILE_OFFSET * j, 0f, TILE_OFFSET * i), Quaternion.identity);
                 AddToArray(newTile, i, j);
@@ -37,6 +37,6 @@ public class Board : MonoBehaviour
     private void AddToArray(GameObject gameObject, int x, int z)
     {
         gameObject.name = "Tile " + z + " " + x;
-        tiles[z, x] = gameObject;
+        tiles[z-1, x-1] = gameObject;
     }
 }

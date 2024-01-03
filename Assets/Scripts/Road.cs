@@ -5,8 +5,6 @@ using UnityEngine.EventSystems;
 
 public class Road : Tile
 {
-    [SerializeField] private Sprite cardFace;
-
     // Start is called before the first frame update
     void Start()
     {

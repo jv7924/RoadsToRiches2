@@ -10,7 +10,6 @@ public abstract class Tile : MonoBehaviour
     protected KeyValuePair<bool, Road> down;
     protected KeyValuePair<bool, Road> left;
     protected KeyValuePair<bool, Road> right;
-
     protected int rotation;
 
     protected abstract void RotateTileClockwise();

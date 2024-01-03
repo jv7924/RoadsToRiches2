@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5550831527267193381}
   m_Layer: 0
   m_Name: Tile Odd
-  m_TagString: Untagged
+  m_TagString: EmptyTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
