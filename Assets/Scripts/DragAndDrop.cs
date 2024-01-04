@@ -7,8 +7,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
 {
     [SerializeField] private Canvas canvas;
     private RectTransform rectTransform;
-    public GameObject road;
-
     RaycastHit hit;
 
     /// <summary>
@@ -34,7 +32,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         
-        // Does the ray intersect any objects excluding the player layer
+        // Does the ray intersect any objects
         if (Physics.Raycast(ray, out hit))
         {
             Debug.DrawRay(Input.mousePosition, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
@@ -54,7 +52,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
 
     public void OnDrop(PointerEventData eventData)
     {
-        Instantiate(road, hit.transform.position, Quaternion.identity);
+        // Instantiate(road, hit.transform.position, Quaternion.identity);
         Destroy(hit.transform.gameObject);
         Destroy(gameObject);
         // Instantiate(road, eventData.position, Quaternion.identity);
