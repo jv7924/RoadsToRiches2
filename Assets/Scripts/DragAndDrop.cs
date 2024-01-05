@@ -6,8 +6,9 @@ using UnityEngine.EventSystems;
 public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IDropHandler
 {
     [SerializeField] private Canvas canvas;
+    [SerializeField] private Card card;
     private RectTransform rectTransform;
-    RaycastHit hit;
+    private RaycastHit hit;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -52,9 +53,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IDragHandler, IBe
 
     public void OnDrop(PointerEventData eventData)
     {
-        // Instantiate(road, hit.transform.position, Quaternion.identity);
+        card.InstantiateRoad(hit.transform.position);
         Destroy(hit.transform.gameObject);
         Destroy(gameObject);
-        // Instantiate(road, eventData.position, Quaternion.identity);
     }
 }
