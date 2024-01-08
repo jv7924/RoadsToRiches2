@@ -23,6 +23,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField]
     private GameObject progressLabel;
 
+    [SerializeField]
+    private string levelName;
+
     #endregion
 
 
@@ -93,6 +96,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+
+        PhotonNetwork.LoadLevel(levelName);
     }
 
     #endregion
