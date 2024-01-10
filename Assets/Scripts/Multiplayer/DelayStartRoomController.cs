@@ -20,18 +20,6 @@ public class DelayStartRoomController : MonoBehaviourPunCallbacks
         PhotonNetwork.RemoveCallbackTarget(this);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void OnJoinedRoom()
     {
         SceneManager.LoadScene(waitingRoomScene);

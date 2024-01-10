@@ -10,8 +10,6 @@ public class ManagerOfGame : MonoBehaviourPunCallbacks
 {
     [SerializeField] private string level;
 
-    #region Photon Callbacks
-
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene(0);
@@ -37,22 +35,10 @@ public class ManagerOfGame : MonoBehaviourPunCallbacks
         }
     }
 
-    #endregion
-
-
-
-    #region Public methods
-
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
     }
-
-    #endregion
-
-
-
-    #region Private Methods
 
     private void LoadLevel()
     {
@@ -65,6 +51,4 @@ public class ManagerOfGame : MonoBehaviourPunCallbacks
         Debug.LogFormat("PhotonNetwork : Loading Level : {0}", level);
         PhotonNetwork.LoadLevel(level);
     }
-
-    #endregion
 }

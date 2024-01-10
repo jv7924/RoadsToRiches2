@@ -7,7 +7,8 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
 {
     [SerializeField] private Sprite cardFace;
     [SerializeField] private Road road;
-    [SerializeField] private Canvas canvas;
+    // private GameObject hand;
+    private Canvas canvas;
     private RectTransform rectTransform;
     private RaycastHit hit;
 
@@ -17,6 +18,8 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        // hand = transform.parent.gameObject;
+        canvas = GetComponentInParent<Canvas>();
     }
 
     // Start is called before the first frame update
