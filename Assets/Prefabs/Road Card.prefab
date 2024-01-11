@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5536055014452886281}
   - component: {fileID: 77541709197910138}
   - component: {fileID: 8942450571675498579}
-  - component: {fileID: 7558008399369144974}
+  - component: {fileID: 585335245441078166}
   m_Layer: 5
   m_Name: Road Card
   m_TagString: Untagged
@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2715286651787597267}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7558008399369144974
+--- !u!114 &585335245441078166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,4 +90,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardFace: {fileID: 0}
   road: {fileID: -5905811250265087704, guid: f747f79a869a3aa4bac0e76acc60ccdd, type: 3}
-  canvas: {fileID: 0}
+  player: {fileID: 0}
+  hand: {fileID: 0}

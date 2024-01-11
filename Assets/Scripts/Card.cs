@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IDropHandler
 {
     [SerializeField] private Sprite cardFace;
     [SerializeField] private Road road;
-    // private GameObject hand;
+    private ObjectSpawner spawner;
+    public GameObject player;
+    public GameObject hand;
+    private Vector3 startPos;
     private Canvas canvas;
     private RectTransform rectTransform;
     private RaycastHit hit;
@@ -17,9 +21,13 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
     /// </summary>
     private void Awake()
     {
+
         rectTransform = GetComponent<RectTransform>();
-        // hand = transform.parent.gameObject;
-        canvas = GetComponentInParent<Canvas>();
+        canvas = player.GetComponent<Canvas>();
+        spawner = GetComponent<ObjectSpawner>();
+
+        hand = transform.parent.gameObject;
+        player = transform.parent.parent.gameObject;
     }
 
     // Start is called before the first frame update
@@ -42,6 +50,7 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("Drag start");
+        this.gameObject.transform.SetParent(player.transform, true);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -69,6 +78,10 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
 
     public void OnDrop(PointerEventData eventData)
     {
+        Debug.Log("Drop");
+        if (hit.transform == null)
+            this.gameObject.transform.SetParent(hand.transform);
+    
         InstantiateRoad(hit.transform.position);
         Destroy(hit.transform.gameObject);
         Destroy(gameObject);
@@ -76,6 +89,6 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
 
     public void InstantiateRoad(Vector3 position)
     {
-        Instantiate(road, position, Quaternion.identity);
+        spawner.SpawnObject(road.gameObject, position, Quaternion.identity);
     }
 }
