@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+[Serializable]
 public class Road : Tile
 {
+    string name = "hi";
     // Start is called before the first frame update
     void Start()
     {

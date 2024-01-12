@@ -90,5 +90,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardFace: {fileID: 0}
   road: {fileID: -5905811250265087704, guid: f747f79a869a3aa4bac0e76acc60ccdd, type: 3}
-  player: {fileID: 0}
-  hand: {fileID: 0}

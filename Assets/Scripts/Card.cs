@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -9,9 +12,8 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
     [SerializeField] private Sprite cardFace;
     [SerializeField] private Road road;
     private ObjectSpawner spawner;
-    public GameObject player;
-    public GameObject hand;
-    private Vector3 startPos;
+    private GameObject player;
+    private GameObject hand;
     private Canvas canvas;
     private RectTransform rectTransform;
     private RaycastHit hit;
@@ -21,25 +23,12 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
     /// </summary>
     private void Awake()
     {
+        hand = transform.parent.gameObject;
+        player = hand.transform.parent.gameObject;
 
         rectTransform = GetComponent<RectTransform>();
         canvas = player.GetComponent<Canvas>();
-        spawner = GetComponent<ObjectSpawner>();
-
-        hand = transform.parent.gameObject;
-        player = transform.parent.parent.gameObject;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        spawner = player.GetComponent<ObjectSpawner>();
     }
     
     public void OnPointerDown(PointerEventData eventData)
@@ -79,7 +68,7 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("Drop");
-        if (hit.transform == null)
+        if (hit.transform == null || hit.transform.CompareTag("Road"))  
             this.gameObject.transform.SetParent(hand.transform);
     
         InstantiateRoad(hit.transform.position);
@@ -89,6 +78,13 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
 
     public void InstantiateRoad(Vector3 position)
     {
-        spawner.SpawnObject(road.gameObject, position, Quaternion.identity);
+        // spawner.SpawnObject(road.gameObject, position, Quaternion.identity);
+
+        spawner.photonView.RPC("RPC_SpawnObject", RpcTarget.All, GetSerialzedRoad(), position, Quaternion.identity);
+    }
+
+    private string GetSerialzedRoad()
+    {
+        return JsonUtility.ToJson(road);
     }
 }

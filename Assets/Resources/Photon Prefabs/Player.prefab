@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7302641605548998335}
   - component: {fileID: 6473564710052559169}
   - component: {fileID: 674928358187011542}
+  - component: {fileID: 8632088871344474074}
   - component: {fileID: 6340218162823802951}
   m_Layer: 5
   m_Name: Player
@@ -103,6 +104,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8632088871344474074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3492088437980724843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3677599f261cc6247a673940befb7f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  photonView: {fileID: 0}
 --- !u!114 &6340218162823802951
 MonoBehaviour:
   m_ObjectHideFlags: 0
