@@ -21,12 +21,14 @@ public class ObjectSpawner : MonoBehaviour
         Instantiate(gameObject, position, rotation);
     }
 
-    [PunRPC]
-    public void RPC_SpawnObject(string roadSerialized, Vector3 position, Quaternion rotation)
-    {
-        Road road = JsonUtility.FromJson<Road>(roadSerialized);
+    // [PunRPC]
+    // public void RPC_SpawnObject(string roadSerialized, Vector3 position, Quaternion rotation)
+    // {
+    //     // RoadData roadData = JsonUtility.FromJson<RoadData>(roadSerialized);
+    //     // Road road;
+    //     // road
 
-        Instantiate(road.gameObject, position, rotation);
-    }
+    //     // Instantiate(road, position, rotation);
+    // }
 
 }

@@ -11,6 +11,7 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
 {
     [SerializeField] private Sprite cardFace;
     [SerializeField] private Road road;
+    [SerializeField] private RoadData roadData;
     private ObjectSpawner spawner;
     private GameObject player;
     private GameObject hand;
@@ -69,22 +70,37 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
     {
         Debug.Log("Drop");
         if (hit.transform == null || hit.transform.CompareTag("Road"))  
-            this.gameObject.transform.SetParent(hand.transform);
+            gameObject.transform.SetParent(hand.transform);
     
+        // AddToBoardArray(hit.transform);
         InstantiateRoad(hit.transform.position);
         Destroy(hit.transform.gameObject);
         Destroy(gameObject);
     }
 
-    public void InstantiateRoad(Vector3 position)
+    private void InstantiateRoad(Vector3 position)
     {
-        // spawner.SpawnObject(road.gameObject, position, Quaternion.identity);
+        spawner.SpawnObject(road.gameObject, position, Quaternion.identity);
 
-        spawner.photonView.RPC("RPC_SpawnObject", RpcTarget.All, GetSerialzedRoad(), position, Quaternion.identity);
+        // spawner.photonView.RPC("RPC_SpawnObject", RpcTarget.All, GetSerialzedRoadData(), position, Quaternion.identity);
     }
 
-    private string GetSerialzedRoad()
+    // private void AddToBoardArray(Transform transform)
+    // {
+    //     Board board = transform.GetComponentInParent<Board>();
+
+    //     int x;
+    //     int z;
+
+    //     string[] coords = transform.gameObject.name.Split(' ');
+    //     x = int.Parse(coords[1]);
+    //     z = int.Parse(coords[2]);
+
+    //     board.AddToArray(road.gameObject, z, x);
+    // }
+
+    private string GetSerialzedRoadData()
     {
-        return JsonUtility.ToJson(road);
+        return JsonUtility.ToJson(roadData);
     }
 }
