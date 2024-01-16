@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IDropHandler
+public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IDropHandler
 {
     [SerializeField] private Sprite cardFace;
     [SerializeField] private Road road;
@@ -31,11 +31,6 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
         canvas = player.GetComponent<Canvas>();
         spawner = player.GetComponent<ObjectSpawner>();
     }
-    
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Debug.Log("Clicked");
-    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -52,18 +47,13 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
         if (Physics.Raycast(ray, out hit))
         {
             Debug.DrawRay(Input.mousePosition, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            // Debug.Log("Did Hit");
         }
         else
         {
             Debug.DrawRay(Input.mousePosition, transform.TransformDirection(Vector3.down) * 1000, Color.white);
-            Debug.Log("Did not Hit");
+            // Debug.Log("Did not Hit");
         }
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        Debug.Log("Drag end");
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -72,8 +62,9 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
         if (hit.transform == null || hit.transform.CompareTag("Road"))  
             gameObject.transform.SetParent(hand.transform);
     
-        // AddToBoardArray(hit.transform);
         InstantiateRoad(hit.transform.position);
+        // AddToBoardArray(hit.transform);
+
         Destroy(hit.transform.gameObject);
         Destroy(gameObject);
     }
@@ -85,16 +76,14 @@ public class Card : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDrag
         // spawner.photonView.RPC("RPC_SpawnObject", RpcTarget.All, GetSerialzedRoadData(), position, Quaternion.identity);
     }
 
-    // private void AddToBoardArray(Transform transform)
+    // private void AddToBoardArray(Transform tileTransform)
     // {
-    //     Board board = transform.GetComponentInParent<Board>();
+    //     Board board = tileTransform.GetComponentInParent<Board>();
 
-    //     int x;
-    //     int z;
+    //     string[] coords = tileTransform.gameObject.name.Split(' ');
 
-    //     string[] coords = transform.gameObject.name.Split(' ');
-    //     x = int.Parse(coords[1]);
-    //     z = int.Parse(coords[2]);
+    //     int x = int.Parse(coords[1]);
+    //     int z = int.Parse(coords[2]);
 
     //     board.AddToArray(road.gameObject, z, x);
     // }

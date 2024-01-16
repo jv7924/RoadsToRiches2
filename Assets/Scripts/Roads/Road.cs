@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-[Serializable]
-public class RoadData
+public class Road : Tile
 {
-    
+
 }

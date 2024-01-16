@@ -5,16 +5,7 @@ using Photon.Pun;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    // [HideInInspector]
-    public PhotonView photonView;
-
-    /// <summary>
-    /// Awake is called when the script instance is being loaded.
-    /// </summary>
-    private void Awake()
-    {
-        photonView.GetComponent<PhotonView>();
-    }
+       public PhotonView photonView;
 
     public void SpawnObject(GameObject gameObject, Vector3 position, Quaternion rotation)
     {
@@ -22,13 +13,12 @@ public class ObjectSpawner : MonoBehaviour
     }
 
     // [PunRPC]
-    // public void RPC_SpawnObject(string roadSerialized, Vector3 position, Quaternion rotation)
+    // public void RPC_SpawnObject(string prefabName, string roadDataSerialized, Vector3 position, Quaternion rotation)
     // {
     //     // RoadData roadData = JsonUtility.FromJson<RoadData>(roadSerialized);
     //     // Road road;
     //     // road
 
-    //     // Instantiate(road, position, rotation);
+    //     // PhotonNetwork.Instantiate(road, position, rotation);
     // }
-
 }
