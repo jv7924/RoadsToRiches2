@@ -71,9 +71,9 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IDropHandler
 
     private void InstantiateRoad(Vector3 position)
     {
-        spawner.SpawnObject(road.gameObject, position, Quaternion.identity);
+        // spawner.SpawnObject(road.gameObject, position, Quaternion.identity);
 
-        // spawner.photonView.RPC("RPC_SpawnObject", RpcTarget.All, GetSerialzedRoadData(), position, Quaternion.identity);
+        spawner.photonView.RPC("RPC_SpawnObject", RpcTarget.All, road.name, position, Quaternion.identity);
     }
 
     // private void AddToBoardArray(Transform tileTransform)

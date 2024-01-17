@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3128086759030551736}
   - component: {fileID: 5050387514717739814}
   - component: {fileID: 2506502727337666982}
-  - component: {fileID: 2396826039168244528}
+  - component: {fileID: -8014520806192604121}
+  - component: {fileID: -632574700186577553}
   m_Layer: 0
   m_Name: BendedTurn
   m_TagString: Road
@@ -106,7 +107,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2396826039168244528
+--- !u!114 &-8014520806192604121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,6 +116,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2131110200247510285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021561448c051d945822b875bdbffc20, type: 3}
+  m_Script: {fileID: 11500000, guid: e6ce1fee7d8d84d4c8a57dfffbc22e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-632574700186577553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131110200247510285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

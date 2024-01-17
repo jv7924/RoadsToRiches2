@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8942450571675498579}
   - component: {fileID: 585335245441078166}
   m_Layer: 5
-  m_Name: Road Card
+  m_Name: BendedTurn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,14 +59,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 207a3278f320a374d96215f7acce6dbc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,4 +89,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardFace: {fileID: 0}
-  road: {fileID: -5905811250265087704, guid: f747f79a869a3aa4bac0e76acc60ccdd, type: 3}
+  road: {fileID: -8014520806192604121, guid: 25b9266e02a53034c840f9e0ccee45a8, type: 3}

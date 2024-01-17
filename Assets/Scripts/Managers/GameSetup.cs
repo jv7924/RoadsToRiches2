@@ -6,15 +6,22 @@ using UnityEngine;
 
 public class GameSetup : MonoBehaviour
 {
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
         CreatePlayer();
+
+        if (!player.GetPhotonView().IsMine)
+        {
+            player.SetActive(false);
+        }
     }
 
     private void CreatePlayer()
     {
         Debug.Log("Creating Player");
-        PhotonNetwork.Instantiate(Path.Combine("Photon Prefabs", "Player"), Vector3.zero, Quaternion.identity);
+        player = PhotonNetwork.Instantiate(Path.Combine("Photon Prefabs", "Player"), Vector3.zero, Quaternion.identity);
     }
 }

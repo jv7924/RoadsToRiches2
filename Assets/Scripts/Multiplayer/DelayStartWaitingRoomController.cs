@@ -88,7 +88,7 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            myPhotonView.RPC("RPC_SendTimer", RpcTarget.Others, timeToStartGame);
+            myPhotonView.RPC("RPC_SendTimer", RpcTarget.All, timeToStartGame);
         }
     }
 

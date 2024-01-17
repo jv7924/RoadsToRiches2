@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 332803618734740834}
   - component: {fileID: 6406270202948387603}
   - component: {fileID: 3736166715871369673}
-  - component: {fileID: 2630811331513772911}
+  - component: {fileID: 7929031421943710978}
+  - component: {fileID: -2135740740175718348}
   m_Layer: 0
   m_Name: StraightRoad
   m_TagString: Road
@@ -106,7 +107,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2630811331513772911
+--- !u!114 &7929031421943710978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,6 +116,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166541741591472369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021561448c051d945822b875bdbffc20, type: 3}
+  m_Script: {fileID: 11500000, guid: bc29c6498584fb140aa7efecfe27e5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2135740740175718348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166541741591472369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
